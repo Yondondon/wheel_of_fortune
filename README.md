@@ -1,3 +1,3 @@
-# wheel_of_fortune
+# Wheel of fortune
 
 Simple wheel of fortune using HTML/CSS/JS.
