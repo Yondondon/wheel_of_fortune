@@ -1,0 +1,169 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #ddd;
+}
+
+.spin_button {
+  background-color: #ffc535;
+  border-radius: 4px;
+  padding: 10px 25px;
+  color: #000;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  transition: all .4s ease-in-out;
+  outline: none;
+  font: 24px/1 Arial, sans-serif;
+  user-select: none;
+  &:hover {
+    box-shadow: 0 0 8px rgba($color: #664500, $alpha: .3);
+  }
+}
+
+.main_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.wheelOfFortune {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  &:before {
+    position: absolute;
+    content: '';
+    display: block;
+    border-top: 40px solid #fff;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+}
+
+#wheel {
+  display: block;
+}
+
+.main_spin_btn {
+  margin-top: 30px;
+}
+
+.modal_overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba($color: #000000, $alpha: .7);
+  z-index: 100;
+}
+
+/* Result popup */
+
+.result_popup {
+  display: none;
+  background-color: #fff;
+  border: 3px solid #FFCC4D;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 101;
+  border-radius: 10px;
+}
+
+.result_popup__header {
+  background-color: #ddd;
+  padding: 10px 15px;
+  display: flex;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+.popup_close_btn {
+  width: 30px;
+  height: 30px;
+  opacity: 0.3;
+  margin-left: auto;
+  position: relative;
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
+  }
+  &:before,
+  &:after {
+    position: absolute;
+    left: 14px;
+    content: ' ';
+    height: 30px;
+    width: 2px;
+    background-color: #333;
+  }
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg);
+  }
+}
+
+.result_popup__body {
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.result_popup__img {
+  width: 200px;
+  margin: 0 15px 15px;
+}
+
+.result_popup__text_block {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.result_popup__spin_btn_wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+/* End -- Result popup */
+
+/* Media queries*/
+@media(max-width: 550px) {
+  #wheel {
+    width: 280px;
+    height: 280px;
+  }
+
+  .result_popup {
+    top: 30px;
+    transform: translateX(-50%);
+  }
+
+  .result_popup__img {
+    width: 150px;
+  }
+
+  .result_popup__text_block {
+    font-size: 18px;
+  }
+}
